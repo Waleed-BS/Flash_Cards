@@ -15,6 +15,11 @@ import store from './store/store'
       - add new card button DONE
       - remove deck button DONE
       - start quiz button only when cards exist DONE
+
+    make above buttons work
+      - add new cards
+      - remove deck
+      - start quiz 
 */
 
 class App extends React.Component {
@@ -27,7 +32,7 @@ class App extends React.Component {
           <DrawerNav/>
         </View>
       </Provider>
-      
+
     )
   }
 }

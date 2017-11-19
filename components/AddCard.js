@@ -92,7 +92,6 @@ const style = StyleSheet.create({
   },
   submitText: {
     fontSize: 24,
-
     textAlign: "center",
     color: "white",
     height:50,
@@ -102,9 +101,7 @@ const style = StyleSheet.create({
     // paddingBottom:
   },
   submitButton: {
-    color: 'white',
     backgroundColor: "black",
-    // small = true when at Quiz
     margin: 20,
     padding: 10,
     height: 50,
@@ -114,9 +111,6 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 18,
-    textAlign: 'center'
-
   }
 })
 

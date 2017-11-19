@@ -2,7 +2,6 @@ import React from 'react';
 import { View, ScrollView, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation';
 import { connect } from "react-redux";
-
 import { fetchDecks } from "../utils/api";
 import { getDecks } from '../actions/Decks_Action'
 
@@ -80,7 +79,7 @@ const style = StyleSheet.create({
     fontSize: 40,
 
     // textAlign: "center",
-    color: "black",
+    // color: "black",
     paddingTop: 15,
     paddingBottom: 15,
     // height:50,
@@ -114,7 +113,7 @@ const style = StyleSheet.create({
     }
   },
   numOfCards: {
-    fontSize: 20
+    fontSize: 20,
   },
   submitText: {
     fontSize: 24,
@@ -128,7 +127,7 @@ const style = StyleSheet.create({
     // paddingBottom:
   },
   submitButton: {
-    color: 'white',
+    // color: 'white',
     backgroundColor: "black",
     // small = true when at Quiz
     margin: 20,
@@ -140,8 +139,8 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 18,
-    textAlign: 'center'
+    // fontSize: 18,
+    // textAlign: 'center'
 
   }
 

@@ -27,6 +27,7 @@ export function decks (state = initialState, action) {
         )
       }
 		}
+
     default:
       return{ ...state }
 

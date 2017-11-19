@@ -2,7 +2,6 @@ import React from 'react';
 import { View, Text, TouchableOpacity, TouchableHighlight, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation';
 import { connect } from "react-redux";
-import { Container } from "native-base"
 import { getDecks } from '../actions/Decks_Action'
 
 class Deck extends React.Component {
@@ -71,7 +70,7 @@ const style = StyleSheet.create({
     // paddingBottom:
   },
   buttonsBox: {
-    color: 'white',
+    // color: 'white',
     backgroundColor: "black",
     // small = true when at Quiz
     margin: 20,
@@ -83,9 +82,6 @@ const style = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
-    fontSize: 18,
-    textAlign: 'center'
-
   },
   deck: {
 
