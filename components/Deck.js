@@ -2,9 +2,18 @@ import React from 'react';
 import { View, Text, TouchableOpacity, TouchableHighlight, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation';
 import { connect } from "react-redux";
-import { getDecks } from '../actions/Decks_Action'
+
+import { deleteDeck } from '../actions/Decks_Action'
+import { unmergeDeck } from '../utils/api'
 
 class Deck extends React.Component {
+
+  deleteDeck = (deckName) => {
+    const { deleteDeckDispatch, navigation } = this.props
+    deleteDeckDispatch(deckName)
+    unmergeDeck(deckName)
+    navigation.goBack()
+  }
 
   redirectTo = (deckName, routeLabel) => {
     const { navigation } = this.props
@@ -19,7 +28,8 @@ class Deck extends React.Component {
     const deckName = navigation.state.params.deckName
     const { decks } = this.props
     const deck = decks[deckName]
-    console.log("deck = decks[deckName]", deck)
+    console.log("\nDeck.js \n render() \n  decks[deckName]", deck)
+
     if (!deck) {
       return null;
     }
@@ -28,10 +38,13 @@ class Deck extends React.Component {
 
       <View>
 
-        <Text style={style.deck}>
-          <Text style={style.deckName}>{deckName + "\n"}</Text>
-          <Text style={style.numOfCards}>{ deck.length + " cards" }</Text>
-        </Text>
+        {/* <Text style={style.deck}> */}
+          <Text style={style.deck}>
+            {"\n" + deckName + "\n"}
+            <Text style={style.numOfCards}>{deck.length + " cards"}</Text>
+          </Text>
+          {/* <Text style={style.numOfCards}>{ deck.length + " cards" }</Text> */}
+        {/* </Text> */}
 
         <TouchableOpacity style={style.buttonsBox} onPress={ () => this.redirectTo(deckName, 'AddCard') }>
           <Text style={style.buttonsText} >Add Card</Text>
@@ -45,7 +58,7 @@ class Deck extends React.Component {
           </View>
         }
 
-        <TouchableHighlight style={style.buttonsBox} onPress={ () => this.redirectTo(deckName, 'RemoveDeck') }>
+        <TouchableHighlight style={style.buttonsBox} onPress={ () => this.deleteDeck(deckName) }>
           <Text style={style.buttonsText}>Remove Deck</Text>
         </TouchableHighlight>
 
@@ -84,18 +97,18 @@ const style = StyleSheet.create({
     alignItems: 'center',
   },
   deck: {
-
+  fontSize: 40,
     margin: 20,
     padding: 10,
     borderColor: "black",
     height: 200,
+
     minWidth: 300,
     borderWidth: 2,
-    // alignSelf: 'center',
-    justifyContent: 'center',
+    textAlign: 'center',
+    // justifyContent: 'center',
+    // lineHeight: 10,
     alignItems: 'center',
-    // fontSize: 18,x
-    // textAlign: 'center',
     shadowRadius: 11,
     shadowOpacity: 0.5,
     shadowColor: "black",
@@ -106,9 +119,11 @@ const style = StyleSheet.create({
   },
   deckName: {
     fontSize: 40,
+    // justifyContent: 'center',
   },
   numOfCards: {
     fontSize: 20,
+    lineHeight: 47,
     // alignItems: "center",
     // alignSelf: "center",
   },
@@ -122,7 +137,7 @@ function mapStateToProps ( decks ) {
 
 function mapDispatchToProps (dispatch) {
   return {
-    getDecksDispatch: (data) => dispatch(getDecks({decks: data}))
+    deleteDeckDispatch: (data) => {dispatch(deleteDeck(data))}
   }
 }
 
