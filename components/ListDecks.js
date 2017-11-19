@@ -32,14 +32,13 @@ class ListDecks extends React.Component {
 
     const {decks} = this.props
 
-    // console.log("render() decks ", decks)
+    console.log("render() decks ", decks)
 
     return (
 
       <View style={style.flex}>
 
         <ScrollView>
-
           { decks && Object.keys(decks).length > 0
             ? Object.keys(decks).map( (deckKey) => {
               return (
@@ -53,17 +52,16 @@ class ListDecks extends React.Component {
 
             }) // end of map function
             : <View>
-
+              <Text style={style.deckName}>Deck is Empty</Text>
               <TouchableOpacity
                 style={style.submitButton}
                 onPress={() => this.props.navigation.navigate('NewDeck')}
-              ><Text style={style.submitText}>Submit New</Text>
+              ><Text style={style.submitText}>Add New Deck</Text>
               </TouchableOpacity>
 
             </View> // end of if deck is empty
 
           }
-
         </ScrollView>
 
       </View>
@@ -78,10 +76,11 @@ const style = StyleSheet.create({
   deckName: {
     fontSize: 40,
 
-    // textAlign: "center",
+    textAlign: "center",
     // color: "black",
     paddingTop: 15,
     paddingBottom: 15,
+
     // height:50,
     // margin: 20,
     // padding: 10,

@@ -1,8 +1,9 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StatusBar, StyleSheet } from 'react-native';
+import { Constants } from 'expo';
 
-import DrawerNav from "./components/DrawerNav";
+import TabNav from "./components/TabNav";
 import store from './store/store'
 
 /* todo:
@@ -19,7 +20,7 @@ import store from './store/store'
     make above buttons work
       - add new cards
       - remove deck
-      - start quiz 
+      - start quiz
 */
 
 class App extends React.Component {
@@ -29,7 +30,8 @@ class App extends React.Component {
 
       <Provider store={store}>
         <View style={style.flex}>
-          <DrawerNav/>
+          <View style={{backgroundColor: "gray", height: Constants.statusBarHeight}}></View>
+          <TabNav/>
         </View>
       </Provider>
 
@@ -39,7 +41,7 @@ class App extends React.Component {
 
 const style = StyleSheet.create({
   flex: {
-    flex: 1000
+    flex: 1,
   }
 })
 
