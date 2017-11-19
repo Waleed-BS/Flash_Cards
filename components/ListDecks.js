@@ -8,26 +8,33 @@ import { getDecks } from '../actions/Decks_Action'
 
 class ListDecks extends React.Component {
 
+
   componentDidMount() {
+    console.log("componentDidMount");
+    const {dispatch} = this.props;
 
-    const { getDecksDispatch } = this.props
-
-    fetchDecks().then((decks) => {
-      getDecksDispatch(decks)})
-
+    fetchDecks()
+      .then( (decks) => {
+        dispatch(getDecks(decks))
+        // console.log("fetchDecks().then((data)) ", decks)
+      }
+    )
   }
 
-  redirectToDeck = (deckKey) => {
-    this.props.navigation.dispatch(NavigationActions.navigate({
+  redirectToDeck = (deckName) => {
+    const { navigation } = this.props
+    navigation.dispatch(NavigationActions.navigate({
       routeName: 'Deck',
-      params: {deckKey}
+      params: {deckName}
     }))
   }
 
   render() {
 
-    const { decks } = this.props
-    console.log("decks ", decks)
+    const {decks} = this.props
+
+    // console.log("render() decks ", decks)
+
     return (
 
       <View style={style.flex}>
@@ -37,24 +44,21 @@ class ListDecks extends React.Component {
           { decks && Object.keys(decks).length > 0
             ? Object.keys(decks).map( (deckKey) => {
               return (
-                <TouchableOpacity onPress={() => {this.redirectToDeck(deckKey)}}>
+                <TouchableOpacity style={style.deck} key={deckKey} onPress={() => {this.redirectToDeck(deckKey)}}>
                   {/* deck name */}
-                  <Text >{deckKey}</Text>
+                  <Text style={style.deckName}>{deckKey}</Text>
                   {/* number of cards */}
-                  <Text>{decks[deckKey].length} cards</Text>
+                  <Text style={style.numOfCards}>{decks[deckKey].length} cards</Text>
                 </TouchableOpacity>
-              ) // end of return map function
+              ) // end of return of map function
 
             }) // end of map function
             : <View>
 
-              <Text>
-                There is no deck yet. You can create a new deck
-                or you can some default data via settings.</Text>
-
               <TouchableOpacity
+                style={style.submitButton}
                 onPress={() => this.props.navigation.navigate('NewDeck')}
-              ><Text>Submit New</Text>
+              ><Text style={style.submitText}>Submit New</Text>
               </TouchableOpacity>
 
             </View> // end of if deck is empty
@@ -72,21 +76,81 @@ class ListDecks extends React.Component {
 }
 
 const style = StyleSheet.create({
-  flex: {
-    flex: 1000
+  deckName: {
+    fontSize: 40,
+
+    // textAlign: "center",
+    color: "black",
+    paddingTop: 15,
+    paddingBottom: 15,
+    // height:50,
+    // margin: 20,
+    // padding: 10,
+    // paddingTop: ,
+    // paddingBottom:
+  },
+  deck: {
+    // color: 'black',
+    // backgroundColor: "black",
+    // small = true when at Quiz
+    margin: 20,
+    padding: 10,
+    borderColor: "black",
+    height: 200,
+    minWidth: 300,
+    borderWidth: 2,
+    // alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // fontSize: 18,x
+    // textAlign: 'center',
+    shadowRadius: 11,
+    shadowOpacity: 0.5,
+    // shadowOpacity: 20,
+    shadowColor: "black",
+    shadowOffset: {
+      width: 1,
+      height: 1
+    }
+  },
+  numOfCards: {
+    fontSize: 20
+  },
+  submitText: {
+    fontSize: 24,
+
+    textAlign: "center",
+    color: "white",
+    height:50,
+    margin: 20,
+    padding: 10,
+    // paddingTop: ,
+    // paddingBottom:
+  },
+  submitButton: {
+    color: 'white',
+    backgroundColor: "black",
+    // small = true when at Quiz
+    margin: 20,
+    padding: 10,
+    height: 50,
+    minWidth: 200,
+    borderRadius: 50,
+    borderWidth: 10,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    alignItems: 'center',
+    fontSize: 18,
+    textAlign: 'center'
+
   }
+
 })
 
-function mapStateToProps ({ decks }) {
+function mapStateToProps (decks) {
   return {
-    decks,
+    decks
   }
-}
+};
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getDecksDispatch: (data) => dispatch(getDecks({decks: data}))
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(ListDecks)
+export default connect(mapStateToProps, null)(ListDecks)

@@ -1,5 +1,5 @@
 import React from 'react'
-import { DrawerItems, DrawerNavigator } from "react-navigation"
+import { DrawerNavigator } from "react-navigation"
 
 import { MaterialIcons } from "@expo/vector-icons/index"
 

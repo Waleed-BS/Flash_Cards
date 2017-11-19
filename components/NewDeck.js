@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity } from 'react-native'
+import { KeyboardAvoidingView, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation';
 
 import { addDeck } from "../actions/Decks_Action"
-import { submitDeck } from "../utils/api"
+import { mergeDeck } from "../utils/api"
 
 class NewDeck extends Component {
 
@@ -12,27 +12,21 @@ class NewDeck extends Component {
     deckName: ''
   }
 
-  handleInputChange = (input) => {
+  onDeckNameChange = (input) => {
     this.setState({
       deckName: input
     })
   }
 
-  handleSubmitButton = () => {
+  submitDeck = () => {
     const { deckName } = this.state;
-    console.log('Will submit ' + deckName);
-    if (deckName && deckName !== '') {
-      this.setState({
-        deckName: null
-      })
-      // dispatch(addDeck(deckName));
-      submitDeck([], deckName)
-      this.redirectToDeckList()
-    }
+    mergeDeck([], deckName)
+    this.redirectToDeckList()
   }
 
   redirectToDeckList = () => {
-    this.props.navigation.dispatch(NavigationActions.back({
+    const { navigation } = this.props
+    navigation.dispatch(NavigationActions.back({
       key: 'NewDeck'
     }))
   }
@@ -50,10 +44,10 @@ class NewDeck extends Component {
 
         <TextInput
           value={deckName}
-          onChangeText={this.handleInputChange}/>
+          onChangeText={this.onDeckNameChange}/>
 
         <TouchableOpacity
-          onPress={this.handleSubmitButton}
+          onPress={this.submitDeck}
           ><Text>Submit New Deck</Text>
         </TouchableOpacity>
 
@@ -63,6 +57,29 @@ class NewDeck extends Component {
 
   }
 
+
 }
 
-export default connect()(NewDeck)
+const style = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    textAlign: 'center',
+    paddingTop: 35,
+    paddingBottom: 15
+
+  },
+})
+
+function mapStateToProps() {
+  return {
+
+  }
+}
+
+function mapDispatchToProps (dispatch) {
+  return {
+    addDeckDispatch: (deckName) => {dispatch(addDeck(deckName))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(NewDeck)

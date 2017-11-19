@@ -1,16 +1,13 @@
 export const GET_DECKS = 'GET_DECKS'
 export const ADD_DECK = 'ADD_DECK'
 
-export function getDecks (decks) {
-  return {
-    type: GET_DECKS,
-    decks
-  }
-};
+export const getDecks = decks => ({
+  type: GET_DECKS,
+  deckData: decks
+});
 
-export function addDeck (deckName) {
-  return {
-    type: ADD_DECK,
-    deckData: deckName
-  }
-};
+
+export const addDeck = deckName => ({
+  type: ADD_DECK,
+  deckData: deckName
+});
