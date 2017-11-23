@@ -10,9 +10,6 @@ $ cd Flashcards
 $ npm install
 $ npm start
 ```
-In order to test or use the app, **expo** app must be installed on your physical device:
-
-Prees `q` to display QR code. Then scan it using ** expo ** in your Iphone/Ipad
 
 In order to test or use the app, **expo** app must be installed on your physical device:
 
