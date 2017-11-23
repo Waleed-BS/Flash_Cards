@@ -23,13 +23,17 @@ class NewDeck extends Component {
     const { addDeckDispatch } = this.props
     mergeDeck([], deckName)
     addDeckDispatch(deckName)
-    this.redirectToDeckList()
+
+    const { navigation } = this.props
+
+    this.redirectToDeck(deckName)
   }
 
-  redirectToDeckList = () => {
+  redirectToDeck = (deckName) => {
     const { navigation } = this.props
-    navigation.dispatch(NavigationActions.back({
-      key: 'NewDeck'
+    navigation.dispatch(NavigationActions.navigate({
+      routeName: 'Deck',
+      params: {deckName}
     }))
     this.setState({deckName: ""})
     // navigation.navigate("Home")
