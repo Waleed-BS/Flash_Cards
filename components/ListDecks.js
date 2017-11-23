@@ -56,7 +56,7 @@ class ListDecks extends React.Component {
 
             })
             : <View>
-              <Text style={style.deckName}>Deck is Empty</Text>
+              <Text style={style.text}>Deck is Empty</Text>
               <TouchableOpacity
                 style={style.submitButton}
                 onPress={() => this.props.navigation.navigate('NewDeck')}
@@ -99,7 +99,7 @@ const style = StyleSheet.create({
     padding: 10,
     borderColor: "black",
     height: 200,
-    minWidth: 300,
+    // minWidth: 300,
     borderWidth: 2,
     // alignSelf: 'center',
     justifyContent: 'center',
@@ -119,11 +119,10 @@ const style = StyleSheet.create({
     fontSize: 20,
   },
   submitText: {
-    fontSize: 24,
-
+    fontSize: 20,
     textAlign: "center",
     color: "white",
-    height:50,
+    height: 50,
     margin: 20,
     padding: 10,
     // paddingTop: ,
@@ -132,20 +131,34 @@ const style = StyleSheet.create({
   submitButton: {
     // color: 'white',
     backgroundColor: "black",
-    // small = true when at Quiz
     margin: 20,
-    padding: 10,
+    // padding: 10,
     height: 50,
-    minWidth: 200,
+    // minWidth: 140,
     borderRadius: 50,
-    borderWidth: 10,
+    // borderWidth: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',
     // fontSize: 18,
     // textAlign: 'center'
 
-  }
+  },
+  text: {
+    fontSize: 25,
+
+    textAlign: "center",
+    // color: "black",
+    marginTop: 150,
+    // paddingTop: 15,
+    // paddingBottom: 15,
+
+    // height:50,
+    // margin: 20,
+    // padding: 10,
+    // paddingTop: ,
+    // paddingBottom:
+  },
 
 })
 

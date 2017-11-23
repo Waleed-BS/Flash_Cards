@@ -103,7 +103,7 @@ const style = StyleSheet.create({
     borderColor: "black",
     height: 200,
 
-    minWidth: 300,
+    // minWidth: 300,
     borderWidth: 2,
     textAlign: 'center',
     // justifyContent: 'center',

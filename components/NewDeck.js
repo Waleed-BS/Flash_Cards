@@ -40,13 +40,14 @@ class NewDeck extends Component {
     const { deckName } = this.state
     return (
 
-      <KeyboardAvoidingView>
+      <KeyboardAvoidingView >
 
         <Text style={style.text}>
           Deck Title
         </Text>
 
         <TextInput
+          placeholder="Enter Deck Title"
           style={style.inputField}
           value={deckName}
           onChangeText={this.onDeckNameChange}/>
@@ -54,7 +55,7 @@ class NewDeck extends Component {
         <TouchableOpacity
           style={style.buttonsBox}
           onPress={this.submitDeck}
-          ><Text style={style.buttonsText}>Submit New Deck</Text>
+          ><Text style={style.buttonsText}>Submit Deck</Text>
         </TouchableOpacity>
 
       </KeyboardAvoidingView>
@@ -68,12 +69,12 @@ class NewDeck extends Component {
 
 const style = StyleSheet.create({
   text: {
-    fontSize: 40,
+    fontSize: 35,
 
     textAlign: "center",
     // color: "black",
-    paddingTop: 15,
-    paddingBottom: 15,
+    marginTop: 120,
+    // paddingBottom: 15,
 
     // height:50,
     // margin: 20,
@@ -98,7 +99,7 @@ const style = StyleSheet.create({
     // borderColor: "#FFFFFF",
   },
   buttonsText: {
-    fontSize: 24,
+    fontSize: 20,
 
     textAlign: "center",
     color: "white",
@@ -112,12 +113,12 @@ const style = StyleSheet.create({
     // color: 'white',
     backgroundColor: "black",
     // small = true when at Quiz
-    margin: 20,
-    padding: 10,
+    // margin: 20,
+    // padding: 10,
     height: 50,
-    minWidth: 200,
+    minWidth: 100,
     borderRadius: 50,
-    borderWidth: 10,
+    // borderWidth: 10,
     alignSelf: 'center',
     justifyContent: 'center',
     alignItems: 'center',

@@ -64,7 +64,7 @@ class AddCard extends React.Component {
         <TouchableOpacity style={style.submitButton} onPress={ this.submitCard }>
           <Text style={style.submitText}>Submit New Card</Text>
         </TouchableOpacity>
-  
+
       </View>
 
     )
@@ -93,10 +93,10 @@ const style = StyleSheet.create({
     // borderColor: "#FFFFFF",
   },
   submitText: {
-    fontSize: 24,
+    fontSize: 20,
     textAlign: "center",
     color: "white",
-    height:50,
+    height: 50,
     margin: 20,
     padding: 10,
     // paddingTop: ,
