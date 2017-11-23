@@ -4,18 +4,20 @@ Flash Cards: This App allow users to study a collection of flashcards. Users can
 
 ## Installing and Starting The App
 
+```
 $ git clone https://github.com/Waleed-BS/Flashcards.git
 $ cd Flashcards
 $ npm install
 $ npm start
+```
 
 In order to test or use the app, **expo** app must be installed on your physical device:
 
-**IOS device:**
+**iOS device:**
 
-Prees `q` to display QR code. Then scan it using ** expo ** in your Iphone/Ipad
+Prees `q` to display QR code. Then scan it using **expo** in your Iphone/Ipad
 
-**IOS simulator:**
+**iOS simulator:**
 
 Prees `i` to run it in your iOS emulator.
 
