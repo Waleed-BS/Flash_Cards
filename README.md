@@ -15,7 +15,7 @@ In order to test or use the app, **expo** app must be installed on your physical
 
 **iOS device:**
 
-Prees `q` to display QR code. Then scan it using **expo** in your Iphone/Ipad
+Prees `q` to display QR code. Then scan it using **expo** in your iPhone/iPad
 
 **iOS simulator:**
 
