@@ -52,7 +52,7 @@ class Deck extends React.Component {
 
         {deck.length >= 1 &&
           <View>
-            <TouchableOpacity style={style.buttonsBox} onPress={ () => this.redirectTo(deckName, 'StartQuiz') }>
+            <TouchableOpacity style={style.buttonsBox} onPress={ () => this.redirectTo(deckName, 'Quiz') }>
               <Text style={style.buttonsText}>Start Quiz</Text>
             </TouchableOpacity>
           </View>

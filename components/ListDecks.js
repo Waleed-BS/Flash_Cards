@@ -2,22 +2,26 @@ import React from 'react';
 import { View, ScrollView, Text, TouchableOpacity, StyleSheet } from 'react-native'
 import { NavigationActions } from 'react-navigation';
 import { connect } from "react-redux";
+
 import { fetchDecks } from "../utils/api";
 import { getDecks } from '../actions/Decks_Action'
+import { setLocalNotification } from '../utils/notification'
 
 class ListDecks extends React.Component {
 
-
   componentDidMount() {
     console.log("componentDidMount");
-    const {dispatch} = this.props;
+    const {getDecksDispatch} = this.props;
 
     fetchDecks()
       .then( (decks) => {
-        dispatch(getDecks(decks))
+        getDecksDispatch(decks)
         // console.log("fetchDecks().then((data)) ", decks)
-      }
-    )
+      })
+      .then(() => {
+        setLocalNotification();
+      })
+
   }
 
   redirectToDeck = (deckName) => {
@@ -48,9 +52,9 @@ class ListDecks extends React.Component {
                   {/* number of cards */}
                   <Text style={style.numOfCards}>{decks[deckKey].length} cards</Text>
                 </TouchableOpacity>
-              ) // end of return of map function
+              )
 
-            }) // end of map function
+            })
             : <View>
               <Text style={style.deckName}>Deck is Empty</Text>
               <TouchableOpacity
@@ -59,7 +63,7 @@ class ListDecks extends React.Component {
               ><Text style={style.submitText}>Add New Deck</Text>
               </TouchableOpacity>
 
-            </View> // end of if deck is empty
+            </View>
 
           }
         </ScrollView>
@@ -151,4 +155,10 @@ function mapStateToProps (decks) {
   }
 };
 
-export default connect(mapStateToProps, null)(ListDecks)
+function mapDispatchToProps (dispatch) {
+  return {
+    getDecksDispatch: (decks) => {dispatch(getDecks(decks))}
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(ListDecks)

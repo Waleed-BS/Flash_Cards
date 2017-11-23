@@ -6,7 +6,7 @@ import Entypo from "@expo/vector-icons/Entypo"
 import ListDecks from './ListDecks'
 import Deck from './Deck'
 import AddCard from './AddCard'
-// import Quiz from './Quiz'
+import Quiz from './Quiz'
 
 const DeckNav = StackNavigator({
   ListDecks: {
@@ -31,10 +31,10 @@ const DeckNav = StackNavigator({
 
     })
   },
-  // Quiz: {
-  //   screen: RemoveDeck,
-  //
-  // }
+  Quiz: {
+    screen: Quiz,
+
+  }
 
 })
 
