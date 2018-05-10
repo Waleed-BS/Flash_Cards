@@ -1,19 +1,22 @@
-# Udacity React Nanodegree Final Project
+# Mobile Flashcards
 
-Flashcards: This App allow users to study a collection of flashcards. Users can create decks of unlimited flashcards to quiz themselves and receive score. 
+Mobile Flashcards is a cross-platfrom mobile application. It allows users to study a collection of flashcards. Create decks of unlimited flashcards to quiz themselves and receive score. 
 
-## Installing and Starting The App
+## Install Dependencies:
 
 ```
-$ git clone https://github.com/Waleed-BS/Flashcards.git
-$ cd Flashcards
+$ cd Mobile_Flashcards
 $ npm install
-$ npm start
 ```
+
+## Start Application
 
 In order to test or use the app, **expo** app must be installed on your physical device:
-
+```
+$ npm start
+```
 **iOS device:**
+
 
 Prees `q` to display QR code. Then scan it using **expo** in your iPhone/iPad
 
