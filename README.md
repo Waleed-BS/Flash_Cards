@@ -6,7 +6,7 @@ Mobile Flashcards is a cross-platfrom mobile application. It allows users to stu
 
 ### Prerequisites
 
-* [**Node.js**](https://nodejs.org/en/).
+* [**Node.js**](https://nodejs.org/en/)
 * [**Expo**](https://expo.io/)
 
 ## Install
