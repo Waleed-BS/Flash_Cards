@@ -1,6 +1,6 @@
 # Mobile Flashcards
 
-Mobile Flashcards is a cross-platfrom mobile application. It allows users to study a collection of flashcards. Create decks of unlimited flashcards to quiz themselves and receive score. 
+Mobile Flashcards is a cross-plaforom mobile application. It allows users to study a collection of flashcards. Create decks of unlimited flashcards to quiz themselves and receive score. 
 
 ## Documentation
 
