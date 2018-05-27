@@ -21,7 +21,6 @@ $ cd Mobile_Flashcards
 Install dependencies.
 
 ```
-$ cd Mobile_Flashcards
 $ npm install
 ```
 
